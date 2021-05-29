@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
 
-function App() {
-  return (
+import './App.css';
+import Button from './components/Button';
+
+
+const App = () => {
+    const [count, setCount] = useState(1);
+    const maxVal = 1000;
+
+    const incrementCountHandler = () => {
+      if (count < maxVal) {
+        setCount(count + 1);
+      }
+    }
+    
+    const decrementCountHandler = () => {
+      setCount(count - 1);
+      console.log('count-', count);
+    }
+
+    const onInputchange = (event) => {
+      setCount(event.target.value);
+      console.log('countc', count);
+    }
+
+    return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Button  actionText="-" onClickHandler={decrementCountHandler} />
+        <input
+          name="counter"
+          type="number"
+          value={count}
+          max={ maxVal.toString() }
+          onChange={onInputchange}
+        />
+      <Button actionText="+" onClickHandler={incrementCountHandler} />
     </div>
   );
 }
