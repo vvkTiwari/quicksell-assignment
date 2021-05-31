@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import './App.css';
 import Button from './components/Button';
 
-
 const App = () => {
     const [count, setCount] = useState(1);
     const maxVal = 1000;
@@ -26,15 +25,17 @@ const App = () => {
 
     return (
     <div className="App">
-      <Button  actionText="-" onClickHandler={decrementCountHandler} />
-        <input
-          name="counter"
-          type="number"
-          value={count}
-          max={ maxVal.toString() }
-          onChange={onInputchange}
-        />
-      <Button actionText="+" onClickHandler={incrementCountHandler} />
+      <div className="Container">
+        <Button  actionText="-" onClickHandler={decrementCountHandler} classes="Button BtnLeft" />
+          <input
+            name="counter"
+            type="number"
+            value={count}
+            max={ maxVal.toString() }
+            onChange={onInputchange}
+          />
+        <Button actionText="+" onClickHandler={incrementCountHandler} classes="Button BtnRight" />
+      </div>
     </div>
   );
 }
