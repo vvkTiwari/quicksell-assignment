@@ -1,8 +1,12 @@
+/*--------- reset css---------- */
+
 input, button, p, div {
   margin: 0;
   padding:0;
   line-height: 1;
 }
+
+/* ---------- Layout css -------- */
 
 .App {
   margin-top: 10%;
@@ -18,7 +22,9 @@ input, button, p, div {
   border: 1px solid #B24242;
 }
 
-.Button {
+/* ------------Button css ---------- */
+
+.Container .Button {
   width: 60px;
   height: 56px;
   font-size: 21px;
@@ -27,17 +33,23 @@ input, button, p, div {
   border-right: 1px solid #B24242;
 }
 
-.Button.BtnRight {
+.Container .Button.BtnRight {
   background: #B24242;
   color: white;
 }
 
-.Button.BtnLeft {
+.Container .Button.BtnLeft {
   background: white;
   color: #B24242;
 }
 
-input {
+.Container .Button:focus {
+  outline:none;
+}
+
+/* --------Input css ---------------- */
+
+.Container input {
   width: 60px;
   height: 56px;
   font-size: 21px;
@@ -46,4 +58,8 @@ input {
   background: #FBE8E8;
   color: #B24242;
   text-align: center;
+}
+
+.Container input:focus {
+  outline: none;
 }
